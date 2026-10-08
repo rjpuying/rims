@@ -222,7 +222,8 @@ begin
   -- Audit log is readable by administrators
   select count(*) into v_n from public.audit_logs where action = 'SALE_CREATED';
   perform public.test_num_eq(v_n, 2, 'ADMIN: reads this run''s audit entries');
-  select count(*) into v_n from public.profiles;
+  select count(*) into v_n from public.profiles
+  where auth_user_id::text like '00000000-0000-0000-0000-00000000000%';
   perform public.test_num_eq(v_n, 5, 'ADMIN: sees all five test profiles');
 end;
 $$;

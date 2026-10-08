@@ -128,3 +128,30 @@
     @apply font-sans;
   }
 }
+
+/* Collapsible sidebar: state lives on <html data-sidebar="collapsed">, set by
+   an inline script before hydration so server and client markup always match. */
+[data-sidebar-shell] {
+  transition: width 200ms ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  html[data-sidebar="collapsed"] [data-sidebar-shell] {
+    width: 4rem;
+  }
+  html[data-sidebar="collapsed"] [data-sidebar-nav] [data-sidebar-group-label],
+  html[data-sidebar="collapsed"] [data-sidebar-nav] [data-sidebar-item-text],
+  html[data-sidebar="collapsed"] [data-sidebar-nav] [data-sidebar-empty] {
+    display: none;
+  }
+  html[data-sidebar="collapsed"] [data-sidebar-nav] [data-sidebar-item] {
+    justify-content: center;
+    gap: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  html[data-sidebar="collapsed"] [data-sidebar-nav] [data-sidebar-item] svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
