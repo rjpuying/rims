@@ -20,9 +20,11 @@ Production system for **Brick Eight Trading Inc.** One warehouse. Rice and Palay
 ## Scripts
 
 ```text
-npm run dev    development server
-npm run build  production build
-npm run lint   eslint
+npm run dev       development server
+npm run build     production build
+npm run lint      eslint
+npm run test:db   database test suite (rollback-only, safe on the remote DB)
+npm run db:sql    run ad-hoc SQL: npm run db:sql -- -c "select 1"
 ```
 
 ## Documentation
@@ -30,7 +32,8 @@ npm run lint   eslint
 - `features.md` — full feature specification
 - `database_architecture.md` — database schema, RLS, and RPC specification
 - `ui_ux_constitution.md` — mobile-first UI/UX rules
-- `docs/database-architecture.md` — implemented schema reference (Phase 1)
+- `docs/database-architecture.md` — implemented schema reference (Phase 1) + ERD
+- `docs/test-cases.md` — database test suite (§74–77 coverage)
 
 ## Environment Variables
 
